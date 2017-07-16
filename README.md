@@ -8,32 +8,22 @@ observable properties of javascript object
 ### nodejs
 ```javascript
 var ob = require('ob');
+var person = {
+    fname: "Tung",
+    lname: "Pham"
+}
+person.changed = function (prop, newVl, oldVl) {
+    console.log(prop, newVl, oldVl) // fname TUNG Tung
+}
+person.fnameChanged = function (newVl, oldVl) {
+    //impl notify fname prop
+    console.log(newVl, oldVl) //TUNG Tung
+}
 
-// observable this 
- var me = ob(this)
-    var fname = "Tung"
-    var lname = "Pham"
-
-    me.changed = function(prop, newVl, oldVl){
-      //impl notify all prop
-      console.log(prop, newVl, oldVl) // fname TUNG Tung
-    }
-    me.fnameChanged = function(newVl, oldVl){
-       //impl notify fname prop
-      console.log( newVl, oldVl) //TUNG Tung
-    }
-
+me = ob(person)
 
 
-// observable object
-
-var info = { someProp : 'someData' }
-var obInfo = ob(info)
-    obInfo.somePropChanged = function(newVl,oldVl){
-    // your impl
-    }
-    obInfo.someProp = 'new data'
-    
+me.fname = 'TUNG'    
 ```
 
 ### browser
@@ -41,7 +31,6 @@ var obInfo = ob(info)
 ```html
 <script src="ob.js"></script>
 <script>
-    var me = ob(this)
     // like above
     
   </script>
