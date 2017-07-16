@@ -12,4 +12,4 @@ ob = function (ctx) {
         }
     })
 }
-module.exports = ob.default = ob
+if(module) module.exports = ob.default = ob
