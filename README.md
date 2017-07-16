@@ -14,11 +14,11 @@ var ob = require('ob');
     var fname = "Tung"
     var lname = "Pham"
 
-    changed = function(prop, newVl, oldVl){
+    me.changed = function(prop, newVl, oldVl){
       //impl notify all prop
       console.log(prop, newVl, oldVl) // fname TUNG Tung
     }
-    fnameChanged = function(newVl, oldVl){
+    me.fnameChanged = function(newVl, oldVl){
        //impl notify fname prop
       console.log( newVl, oldVl) //TUNG Tung
     }
